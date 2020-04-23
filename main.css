@@ -1,0 +1,45 @@
+.row {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+}
+.column {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+}
+#startMenu {
+    position: fixed;
+    bottom: 0;
+    z-index: -1;
+}
+body {
+ background-color: #008080;
+}
+#minButton {
+    display: none;
+}
+.maxButton {
+position: absolute;
+z-index: 1;
+bottom: 0;
+margin-left: 260px;
+margin-bottom: 5px;
+padding-left: 30px;
+padding-right: 30px;
+padding-top: 7px;
+padding-bottom: 7px;
+}
+#windowId {
+    width: 50vh; 
+    height: 25vh;
+}
+#hiddenWindow {
+    display: none;
+    width: 80vh; 
+    height: 60vh;
+}
