@@ -1,3 +1,5 @@
+
+
 let min = document.getElementById('min');
 let min2 = document.getElementById('min2');
 
@@ -60,3 +62,4 @@ minFunction();
 minFunction2();
 clickMin();
 clickMax();
+

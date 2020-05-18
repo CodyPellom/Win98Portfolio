@@ -11,14 +11,12 @@
     justify-content: center;
     align-content: center;
     align-items: center;
+    height: 100vh;
 }
-#startMenu {
-    position: fixed;
-    bottom: 0;
-    z-index: -1;
-}
+
 body {
  background-color: #008080;
+ cursor: default !important;
 }
 #minButton {
     display: none;
@@ -27,19 +25,31 @@ body {
 position: absolute;
 z-index: 1;
 bottom: 0;
-margin-left: 260px;
-margin-bottom: 5px;
+margin-left: 16%;
+
 padding-left: 30px;
 padding-right: 30px;
 padding-top: 7px;
 padding-bottom: 7px;
 }
 #windowId {
-    width: 50vh; 
-    height: 25vh;
+    width: 300px; 
+    height: 200px;
+    position: absolute;
+    margin-top: 15%;
 }
 #hiddenWindow {
+    position: absolute;
     display: none;
     width: 80vh; 
     height: 60vh;
 }
+#windowId, #hiddenWindow {
+    touch-action: none;
+    user-select: none;
+    -webkit-transform: translate(0px, 0px);
+            transform: translate(0px, 0px);
+  }
+  .draggable {
+      position: absolute;
+  }
