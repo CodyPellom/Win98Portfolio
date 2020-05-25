@@ -5,47 +5,47 @@
     <script src="./node_modules/interactjs/dist/interact.min.js"></script>
     <script>
         // target elements with the "draggable" class
-interact('.draggable')
-  .draggable({
-    // enable inertial throwing
-    inertia: true,
-    // keep the element within the area of it's parent
-    modifiers: [
-      interact.modifiers.restrictRect({
-        restriction: 'parent',
-        endOnly: true
-      })
-    ],
-    // enable autoScroll
-    autoScroll: true,
+        interact('.draggable')
+            .draggable({
+                // enable inertial throwing
+                inertia: true,
+                // keep the element within the area of it's parent
+                modifiers: [
+                    interact.modifiers.restrictRect({
+                        restriction: 'parent',
+                        endOnly: true
+                    })
+                ],
+                // enable autoScroll
+                autoScroll: true,
 
-    listeners: {
-      // call this function on every dragmove event
-      move: dragMoveListener,
+                listeners: {
+                    // call this function on every dragmove event
+                    move: dragMoveListener,
 
-      // call this function on every dragend event
-     
-    }
-  })
+                    // call this function on every dragend event
 
-function dragMoveListener (event) {
-  var target = event.target
-  // keep the dragged position in the data-x/data-y attributes
-  var x = (parseFloat(target.getAttribute('data-x')) || 0) + event.dx
-  var y = (parseFloat(target.getAttribute('data-y')) || 0) + event.dy
+                }
+            })
 
-  // translate the element
-  target.style.webkitTransform =
-    target.style.transform =
-      'translate(' + x + 'px, ' + y + 'px)'
+        function dragMoveListener(event) {
+            var target = event.target
+            // keep the dragged position in the data-x/data-y attributes
+            var x = (parseFloat(target.getAttribute('data-x')) || 0) + event.dx
+            var y = (parseFloat(target.getAttribute('data-y')) || 0) + event.dy
 
-  // update the posiion attributes
-  target.setAttribute('data-x', x)
-  target.setAttribute('data-y', y)
-}
+            // translate the element
+            target.style.webkitTransform =
+                target.style.transform =
+                'translate(' + x + 'px, ' + y + 'px)'
 
-// this function is used later in the resizing and gesture demos
-window.dragMoveListener = dragMoveListener
+            // update the posiion attributes
+            target.setAttribute('data-x', x)
+            target.setAttribute('data-y', y)
+        }
+
+        // this function is used later in the resizing and gesture demos
+        window.dragMoveListener = dragMoveListener
     </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -57,26 +57,29 @@ window.dragMoveListener = dragMoveListener
 
 <body>
     <div class="column">
+        <!-- Exposed start window start -->
         <div class="draggable">
-        <div class="window" id="windowId">
-            <div class="title-bar">
-                <div class="title-bar-text">Welcome</div>
-                <div class="title-bar-controls">
-                    <button aria-label="Minimize" id="min"></button>
-                    <button aria-label="Maximize" id="max"></button>
-                    <button aria-label="Close" id="close"></button>
+            <div class="window" id="windowId">
+                <div class="title-bar">
+                    <div class="title-bar-text">Welcome</div>
+                    <div class="title-bar-controls">
+                        <button aria-label="Minimize" id="min"></button>
+                        <button aria-label="Maximize" id="max"></button>
+                        <button aria-label="Close" id="close"></button>
+                    </div>
+                </div>
+                <div class="window-body">
+                    <p>Welcome to my website. Please choose from the following: </p>
+                    <button>Portfolio</button>
+                    <button id="aboutMeButton">About Me</button>
+                    <button>More</button>
+
                 </div>
             </div>
-            <div class="window-body">
-                <p>Welcome to my website. Please choose from the following: </p>
-                <button>Portfolio</button>
-                <button>About Me</button>
-                <button>More</button>
-
-            </div>
         </div>
-    </div>
+        <!-- Exposed start window ends -->
 
+        <!-- Hidden start window start -->
         <div class="window" id="hiddenWindow" class="draggable">
             <div class="title-bar">
                 <div class="title-bar-text">Welcome</div>
@@ -94,11 +97,38 @@ window.dragMoveListener = dragMoveListener
 
             </div>
         </div>
+        <!-- Hidden start window ends -->
+<!-- About me start -->
+        <div class="draggable">
+            <div class="window" id="aboutMeWindow">
+                <div class="title-bar">
+                    <div class="title-bar-text">About Me</div>
+                    <div class="title-bar-controls">
+                        <button aria-label="Minimize" id="min"></button>
+                        <button aria-label="Maximize" id="max"></button>
+                        <button aria-label="Close" id="close"></button>
+                    </div>
+                </div>
+                <div class="window-body">
+                    <div class="column">
+                        <h1>About Me</h1>
+                        <p>My name is Cody Pellom. I am a web developer / software engineer currently
+                            residing in the North Atlanta area. I specialize in Javascript and C# MVC frameworks
+                            such as Episerver, Sencha and others. In my spare time, I enjoy studying machine learning
+                            and advanced animation principles for UX/UI. I have been a developer for around 3 years now.
+                        </p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- About me End -->
+
     </div>
     <button id="minButton">Welcome</button>
     <!-- <div id="taskbar">
         <!-- <img src="./startmenu.PNG" alt="startmenu" id="startMenu"> -->
-    </div> 
+    </div>
     <script src="./main.js"></script>
 
 </body>

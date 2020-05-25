@@ -52,4 +52,6 @@ padding-bottom: 7px;
   }
   .draggable {
       position: absolute;
+      cursor: default !important;
+      touch-action: none;
   }
